@@ -1,0 +1,21 @@
+{
+  "name": "react-typescript-commentbox",
+  "version": "1.0.0",
+  "description": "Simpe CommentBox made with ReactJS &amp; Typescript",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohmanhakim/react-typescript-commentbox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohmanhakim/react-typescript-commentbox/issues"
+  },
+  "homepage": "https://github.com/rohmanhakim/react-typescript-commentbox#readme",
+  "devDependencies": {
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.2"
+  }
+}

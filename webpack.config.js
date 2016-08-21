@@ -17,6 +17,8 @@ var config = {
     filename: "bundle.js"
   },
 
+  devtool: "source-map",
+
   /*
    * resolve lets Webpack now in advance what file extensions you plan on
    * "require"ing into the web application, and allows you to drop them

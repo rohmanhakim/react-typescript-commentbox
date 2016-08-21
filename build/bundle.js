@@ -54,8 +54,8 @@
 	"use strict";
 	var React = __webpack_require__(2);
 	var ReactDOM = __webpack_require__(35);
-	var Hello_1 = __webpack_require__(173);
-	ReactDOM.render(React.createElement(Hello_1.default, {name: "Willson"}), document.getElementById("root"));
+	var CommentBox_1 = __webpack_require__(173);
+	ReactDOM.render(React.createElement(CommentBox_1.default, null), document.getElementById('content'));
 
 
 /***/ },
@@ -21420,18 +21420,18 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(2);
-	var Hello = (function (_super) {
-	    __extends(Hello, _super);
-	    function Hello() {
-	        _super.apply(this, arguments);
+	var CommentBox = (function (_super) {
+	    __extends(CommentBox, _super);
+	    function CommentBox(props) {
+	        _super.call(this, props);
 	    }
-	    Hello.prototype.render = function () {
-	        return React.createElement("div", null, "Hello, ", this.props.name);
+	    CommentBox.prototype.render = function () {
+	        return (React.createElement("div", {className: "commentBox"}, "Hello, world! I am a CommentBox."));
 	    };
-	    return Hello;
+	    return CommentBox;
 	}(React.Component));
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = Hello;
+	exports.default = CommentBox;
 
 
 /***/ }

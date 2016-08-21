@@ -21420,18 +21420,72 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(2);
+	var CommentForm_1 = __webpack_require__(174);
+	var CommentList_1 = __webpack_require__(175);
 	var CommentBox = (function (_super) {
 	    __extends(CommentBox, _super);
 	    function CommentBox(props) {
 	        _super.call(this, props);
 	    }
 	    CommentBox.prototype.render = function () {
-	        return (React.createElement("div", {className: "commentBox"}, "Hello, world! I am a CommentBox."));
+	        return (React.createElement("div", {className: "commentBox"}, React.createElement("h1", null, "Comments"), React.createElement(CommentList_1.default, null), React.createElement(CommentForm_1.default, null)));
 	    };
 	    return CommentBox;
 	}(React.Component));
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = CommentBox;
+
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(2);
+	var CommentForm = (function (_super) {
+	    __extends(CommentForm, _super);
+	    function CommentForm(props) {
+	        _super.call(this, props);
+	    }
+	    CommentForm.prototype.render = function () {
+	        return (React.createElement("div", {className: "commentForm"}, "Hello, world! I am a CommentForm."));
+	    };
+	    return CommentForm;
+	}(React.Component));
+	exports.CommentForm = CommentForm;
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = CommentForm;
+
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(2);
+	var CommentList = (function (_super) {
+	    __extends(CommentList, _super);
+	    function CommentList(props) {
+	        _super.call(this, props);
+	    }
+	    CommentList.prototype.render = function () {
+	        return (React.createElement("div", {className: "commentList"}, "Hello, world! I am a CommentList."));
+	    };
+	    return CommentList;
+	}(React.Component));
+	exports.CommentList = CommentList;
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = CommentList;
 
 
 /***/ }

@@ -27,7 +27,6 @@
     "jquery": "^3.1.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
-    "remarkable": "^1.6.2",
     "showdown": "^1.4.3"
   }
 }

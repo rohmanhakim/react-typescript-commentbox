@@ -1,4 +1,7 @@
 import * as React from "react";
+import CommentForm from "../src/CommentForm";
+import CommentList from "../src/CommentList"
+
 
 class CommentBox extends React.Component<any,any> {
     constructor(props:any){
@@ -7,7 +10,9 @@ class CommentBox extends React.Component<any,any> {
     public render(){
         return (
             <div className="commentBox">
-                Hello, world! I am a CommentBox.
+                <h1>Comments</h1>
+                <CommentList />
+                <CommentForm />
             </div>
         );
     }

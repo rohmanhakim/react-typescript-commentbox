@@ -21449,6 +21449,10 @@
 	    };
 	    CommentBox.prototype.handleCommentSubmit = function (comment) {
 	        var self = this;
+	        var comments = this.state.data;
+	        comment.id = Date.now();
+	        var newComments = comments.concat([comment]);
+	        this.setState({ data: newComments });
 	        jQuery.ajax({
 	            url: this.props.url,
 	            dataType: 'json',
@@ -21458,6 +21462,7 @@
 	                self.setState({ data: data });
 	            },
 	            error: function (xhr, status, err) {
+	                self.setState({ data: comments });
 	                console.error(self.props.url, status, err.toString());
 	            }
 	        });

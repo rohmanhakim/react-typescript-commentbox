@@ -21447,12 +21447,27 @@
 	            }
 	        });
 	    };
+	    CommentBox.prototype.handleCommentSubmit = function (comment) {
+	        var self = this;
+	        jQuery.ajax({
+	            url: this.props.url,
+	            dataType: 'json',
+	            type: 'POST',
+	            data: comment,
+	            success: function (data) {
+	                self.setState({ data: data });
+	            },
+	            error: function (xhr, status, err) {
+	                console.error(self.props.url, status, err.toString());
+	            }
+	        });
+	    };
 	    CommentBox.prototype.componentDidMount = function () {
 	        this.loadCommentsFromServer();
 	        setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 	    };
 	    CommentBox.prototype.render = function () {
-	        return (React.createElement("div", {className: "commentBox"}, React.createElement("h1", null, "Comments"), React.createElement(CommentList_1.default, {data: this.state.data}), React.createElement(CommentForm_1.default, null)));
+	        return (React.createElement("div", {className: "commentBox"}, React.createElement("h1", null, "Comments"), React.createElement(CommentList_1.default, {data: this.state.data}), React.createElement(CommentForm_1.default, {onCommentSubmit: this.handleCommentSubmit.bind(this)})));
 	    };
 	    return CommentBox;
 	}(React.Component));
@@ -31555,9 +31570,26 @@
 	    __extends(CommentForm, _super);
 	    function CommentForm(props) {
 	        _super.call(this, props);
+	        this.state = { author: '', text: '' };
 	    }
+	    CommentForm.prototype.handleAuthorChange = function (e) {
+	        this.setState({ author: e.target.value });
+	    };
+	    CommentForm.prototype.handleTextChange = function (e) {
+	        this.setState({ text: e.target.value });
+	    };
+	    CommentForm.prototype.handleSubmit = function (e) {
+	        e.preventDefault();
+	        var author = this.state.author.trim();
+	        var text = this.state.text.trim();
+	        if (!text || !author) {
+	            return;
+	        }
+	        this.props.onCommentSubmit({ author: author, text: text });
+	        this.setState({ author: '', text: '' });
+	    };
 	    CommentForm.prototype.render = function () {
-	        return (React.createElement("div", {className: "commentForm"}, "Hello, world! I am a CommentForm."));
+	        return (React.createElement("form", {className: "commentForm", onSubmit: this.handleSubmit.bind(this)}, React.createElement("input", {type: "text", placeholder: "Your name", value: this.state.author, onChange: this.handleAuthorChange.bind(this)}), React.createElement("input", {type: "text", placeholder: "Say something...", value: this.state.text, onChange: this.handleTextChange.bind(this)}), React.createElement("input", {type: "submit", value: "Post"})));
 	    };
 	    return CommentForm;
 	}(React.Component));

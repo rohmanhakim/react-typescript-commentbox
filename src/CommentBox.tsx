@@ -25,6 +25,23 @@ class CommentBox extends React.Component<any,any> {
             }
         });
     }
+    public handleCommentSubmit(comment:string){
+        let self = this;
+        //noinspection TypeScriptUnresolvedVariable
+        jQuery.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            type: 'POST',
+            data: comment,
+            success: function (data) {
+                self.setState({data: data})
+            },
+            error: function (xhr, status, err) {
+                //noinspection TypeScriptUnresolvedVariable
+                console.error(self.props.url, status, err.toString())
+            }
+        });
+    }
     public componentDidMount() {
         this.loadCommentsFromServer();
         //noinspection TypeScriptUnresolvedVariable
@@ -35,7 +52,7 @@ class CommentBox extends React.Component<any,any> {
             <div className="commentBox">
                 <h1>Comments</h1>
                 <CommentList data={this.state.data}/>
-                <CommentForm />
+                <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this)}/>
             </div>
         );
     }
